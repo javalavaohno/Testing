@@ -14,36 +14,52 @@ class Assignment4 {
 
         // Algorithm 1
         int vowelCount = 0;
-        int RepeatCount = 0;
+        int repeatCount = 0;
         String temp = "";
         boolean prevSpace = true;
         boolean keep = false;
 
         // Checks for vowels and space
         for (int i = 0; i < input.length(); i++) {
-            if (((input.substring(i, i+1).equals("a") ||
-                    input.substring(i, i+1).equals("e") ||
-                    input.substring(i, i+1).equals("i") ||
-                    input.substring(i, i+1).equals("o") ||
-                    input.substring(i, i+1).equals("u")))) {
-                keep = false;
-                if (prevSpace) {
+            if ("aeiou".indexOf(input.substring(i, i + 1)) != -1) {
+                if (prevSpace == true) {
                     keep = true;
+                } else {
+                    keep = false;
+                    vowelCount++;
                 }
             } else {
                 if (i != input.length() - 1 && input.substring(i, i + 1).equals(input.substring(i + 1, i + 2))) {
                     keep = false;
+                    repeatCount++;
                 } else {
                     keep = true;
                 }
             }
-            if (!(input.substring(i, i + 1).equals(" "))) {
+            if (input.substring(i, i + 1).equals(" ")) {
+                prevSpace = true;
+            } else {
                 prevSpace = false;
             }
             if (keep == true) {
                 temp = temp + input.substring(i, i + 1);
             }
         }
-        System.out.println(temp + prevSpace + keep);
+        // Algorithm 1 Output
+        System.out.println("Algorithm 1");
+        System.out.println("Vowels remove: " + vowelCount);
+        System.out.println("Repeats remove: " + repeatCount);
+        System.out.println("Algorithm 1 message: " + temp);
+        System.out.println("Algorithm 1 characters saved: " + (input.length()-temp.length()));
+
+
+
+        // Algorithm 2
+        for (int i = 0; i < input.length(); i++) {
+
+            for (int j = 0; j < input.length(); j++) {
+
+            }
+        }
     }
 }
