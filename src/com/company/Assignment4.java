@@ -55,11 +55,22 @@ class Assignment4 {
 
 
         // Algorithm 2
+        String temp2 = "";
         for (int i = 0; i < input.length(); i++) {
-
+            int letterCount = 0;
+            
             for (int j = 0; j < input.length(); j++) {
 
+                if (input.substring(i, i + 1).equals(input.substring(j, 
+                }
+            }
+            if(temp2.indexOf(input.substring(i, i + 1)) == -1 && !(input.substring(i, i + 1).equals(" "))) {
+                temp2 += letterCount + input.substring(i, i + 1);
             }
         }
+        System.out.println("\nAlgorithm 2");
+        System.out.println("Unique characters found: " + (temp2.length() / 2));
+        System.out.println("Algorithm 2 message: " + temp2);
+        System.out.println("Algorithm 2 characters saved: " + (input.length() - temp2.length());
     }
 }
